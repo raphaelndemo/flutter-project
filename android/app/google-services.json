@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "201503699171",
+    "project_id": "mynotes-96576",
+    "storage_bucket": "mynotes-96576.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201503699171:android:a34c20e6dd657d036155d6",
+        "android_client_info": {
+          "package_name": "com.makingstuffup.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201503699171-q2k0tl4t27fe1j7h7ddr567odbo4pfnt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAD2LoO6WgDl7zijr_HN2W38aJbGgQb1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "201503699171-q2k0tl4t27fe1j7h7ddr567odbo4pfnt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
