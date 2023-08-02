@@ -1,34 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:mynotes/views/login_view.dart';
-import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:mynotes/firebase_options.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(
-    MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const LoginView(),
-    ),
-  );
-}
-
-class RegisterView extends StatefulWidget {
-  const RegisterView({Key? key}) : super(key: key);
+class LoginView extends StatefulWidget {
+  const LoginView({Key? key}) : super(key: key);
 
   @override
-  State<RegisterView> createState() => _RegisterViewState();
+  State<LoginView> createState() => _LoginViewState();
 }
 
-class _RegisterViewState extends State<RegisterView> {
+class _LoginViewState extends State<LoginView> {
   late final TextEditingController _email;
   late final TextEditingController _password;
 
@@ -50,7 +32,7 @@ class _RegisterViewState extends State<RegisterView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Register'),
+        title: const Text('Login'),
       ),
       body: FutureBuilder(
         future: Firebase.initializeApp(
@@ -63,11 +45,12 @@ class _RegisterViewState extends State<RegisterView> {
                 children: [
                   TextField(
                     controller: _email,
-                    enableSuggestions: false,
+                    obscureText: false,
                     autocorrect: false,
+                    enableSuggestions: false,
                     keyboardType: TextInputType.emailAddress,
                     decoration: const InputDecoration(
-                      hintText: 'Enter your email address here',
+                      hintText: 'Enter your email address',
                     ),
                   ),
                   TextField(
@@ -76,7 +59,7 @@ class _RegisterViewState extends State<RegisterView> {
                     enableSuggestions: false,
                     autocorrect: false,
                     decoration: const InputDecoration(
-                      hintText: 'Enter your Password here',
+                      hintText: 'please enter your password here',
                     ),
                   ),
                   TextButton(
@@ -84,11 +67,11 @@ class _RegisterViewState extends State<RegisterView> {
                       final email = _email.text;
                       final password = _password.text;
                       final userCredential = await FirebaseAuth.instance
-                          .createUserWithEmailAndPassword(
+                          .signInWithEmailAndPassword(
                               email: email, password: password);
                       print(userCredential);
                     },
-                    child: const Text('Register'),
+                    child: const Text('Login'),
                   ),
                 ],
               );
